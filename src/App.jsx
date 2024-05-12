@@ -44,8 +44,28 @@ function App() {
           <tbody>
             {jsonData?.map((data, indx) => (
               <tr key={indx}>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
+                <td>
+                  {data.itineraries.map((itinerary, itineraryIndx) => (
+                    <div key={itineraryIndx}>
+                      {itinerary.segments.map((segment, segmentIndex) => (
+                        <span key={segmentIndex}>
+                          {segment.carrierCode} {segment.aircraft} <br />
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </td>
+                <td>
+                  {data.itineraries.map((itinerary, itineraryIndx) => (
+                    <div key={itineraryIndx}>
+                      {itinerary.segments.map((segment, segmentIndex) => (
+                        <span key={segmentIndex}>
+                          {segment.flightNumber} <br />
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </td>
                 <td>
                   {data.class.map((classItem, index) => (
                     <div key={index}>
@@ -64,6 +84,29 @@ function App() {
                       {classItem.map((item, subIndex) => (
                         <span key={subIndex}>
                           {item} <br />
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </td>
+                <td>Route</td>
+                <td>
+                  {data.itineraries.map((itinerary, itineraryIndex) => (
+                    <div key={itineraryIndex}>
+                      {itinerary.segments.map((segment, segmentIndex) => (
+                        <span key={segmentIndex}>
+                          {segment.departure.at} <br />
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </td>
+                <td>
+                  {data.itineraries.map((itinerary, itineraryIndex) => (
+                    <div key={itineraryIndex}>
+                      {itinerary.segments.map((segment, segmentIndex) => (
+                        <span key={segmentIndex}>
+                          {segment.arrival.at} <br />
                         </span>
                       ))}
                     </div>
