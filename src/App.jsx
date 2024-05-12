@@ -89,7 +89,19 @@ function App() {
                     </div>
                   ))}
                 </td>
-                <td>Route</td>
+                <td>
+                  {data.itineraries.map((itinerary, itineraryIndex) => (
+                    <div key={itineraryIndex}>
+                      {itinerary.segments.map((segment, segmentIndex) => (
+                        <span key={segmentIndex}>
+                          {segment.departure.iataCode} -{" "}
+                          {segment.arrival.iataCode}
+                          <br />
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </td>
                 <td>
                   {data.itineraries.map((itinerary, itineraryIndex) => (
                     <div key={itineraryIndex}>
@@ -106,7 +118,8 @@ function App() {
                     <div key={itineraryIndex}>
                       {itinerary.segments.map((segment, segmentIndex) => (
                         <span key={segmentIndex}>
-                          {segment.arrival.at} <br />
+                          {segment.arrival.at}
+                          <br />
                         </span>
                       ))}
                     </div>
@@ -114,7 +127,10 @@ function App() {
                 </td>
                 <td>
                   {data.itineraries.map((itinerary, index) => (
-                    <div key={index}>{itinerary.duration}</div>
+                    <div key={index}>
+                      {"------- "}
+                      {itinerary.duration}
+                    </div>
                   ))}
                 </td>
 
