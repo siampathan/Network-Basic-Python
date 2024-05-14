@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import DATA from "./data/LHR_CDG_ADT1_TYPE_1.txt";
 import "./App.css";
+import Heder from "./components/header";
+import Category from "./components/category";
 
 function App() {
   const [jsonData, setJsonData] = useState(null);
@@ -23,9 +25,10 @@ function App() {
 
   return (
     <>
-      <h3>Data Parsed successfully</h3>
+      <Heder />
+      <Category />
 
-      <div className="table__wrap">
+      <div className="table__wrap padding__space">
         <table>
           <thead>
             <tr>
